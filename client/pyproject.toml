@@ -47,3 +47,5 @@ path = "main.py"
 "android.permission.WAKE_LOCK" = false
 "android.permission.SYSTEM_ALERT_WINDOW" = false
 "android.permission.QUERY_ALL_PACKAGES" = false
+[tool.flet.app]
+path = "src"
