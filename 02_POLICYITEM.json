@@ -1,0 +1,10 @@
+{
+  "_note": "结构示例，全部为占位值；字段固定为 8 个：id / category / title / summary / source / url / publish_date",
+  "id": "YYYY-MM-DD-NN",
+  "category": "民生",
+  "title": "<政策标题占位>",
+  "summary": "<一句话摘要占位>",
+  "source": "<发布部门占位，如 国务院办公厅>",
+  "url": "https://example.gov.cn/path/to/article.htm",
+  "publish_date": "YYYY-MM-DD"
+}

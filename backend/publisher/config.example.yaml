@@ -1,0 +1,28 @@
+# 段7 推送层配置示例 —— 复制为 config.yaml 的 publisher 段使用
+# S2：topic 与 token 只放环境变量，不写进本文件、不进仓库、不进日志。
+
+publisher:
+  provider: ntfy                    # ntfy | noop（调试）
+  ntfy:
+    server: https://ntfy.sh
+    topic_env: NTFY_TOPIC           # 长随机 topic，例：export NTFY_TOPIC=policydaily_x7f2k9q4m1
+    token_env: NTFY_TOKEN           # Bearer Token，例：export NTFY_TOKEN=tk_xxxxxxxx
+    auth_scheme: Bearer             # 请求头 Authorization: Bearer <token>
+    title_template: "民生政策日报 {date}"
+    body_char_min: 1000             # 正文 1000~1200 中文字（下限提示，不多补）
+    body_char_max: 1200             # 超出按 1200 字截断
+    max_payload_bytes: 4096         # 总 UTF-8 ≤ 4096 字节，超出再截，JSON 地址始终保留
+    priority: default               # min | low | default | high | max
+    tags: [memo]
+    include_json_url: true          # 正文末尾追加 "\n\nJSON: {json_url}"
+    retries: 3                      # 失败重试次数（含首次共 3 次）
+    retry_backoff_seconds: 2        # 第 n 次重试前等待 n*2 秒
+    timeout_seconds: 15
+    dedup:
+      enabled: true                 # 同日去重
+      state_file: publish_state.json  # 记录 {"last_sent_date": "YYYY-MM-DD"}
+      force_env: NTFY_FORCE         # 设 NTFY_FORCE=1 时忽略去重强制重发
+
+# 日志：只记录日期、字节数、HTTP 状态；绝不记录 token
+logging:
+  log_token: false

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- H3：仅 INTERNET；不申请相机/相册/麦克风/定位/通讯录/短信/电话/蓝牙/NFC/存储 -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

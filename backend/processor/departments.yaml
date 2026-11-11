@@ -1,0 +1,108 @@
+# 部门 → default_category 兜底映射（段5 处理层）
+# 用途：模型输出 category 非法/缺失时，按 item.source 命中部门，取该部门 default_category。
+# 规则：source 字段包含 key（不区分大小写的子串匹配）即命中；自上而下第一个命中生效；
+#       未命中任何部门 → 落 fallback_category（其他）。
+# 枚举固定六类（00_CONSTRAINTS L13）：民生 / 经济金融 / 科技产业 / 安全国防 / 政务法治 / 其他
+
+fallback_category: 其他
+
+sources:
+  中国政府网: 政务法治
+  国家发改委: 经济金融
+  中国人民银行: 经济金融
+  司法部: 政务法治
+
+departments:
+  # ---- 国务院及综合政务 ----
+  国务院办公厅:
+    default_category: 政务法治
+  国务院:
+    default_category: 政务法治
+  国家发展改革委:
+    default_category: 经济金融
+  国家发改委:
+    default_category: 经济金融
+  财政部:
+    default_category: 经济金融
+  中国人民银行:
+    default_category: 经济金融
+  金融监管总局:
+    default_category: 经济金融
+  证监会:
+    default_category: 经济金融
+  商务部:
+    default_category: 经济金融
+  税务总局:
+    default_category: 经济金融
+  统计局:
+    default_category: 经济金融
+
+  # ---- 民生 ----
+  人力资源和社会保障部:
+    default_category: 民生
+  人社部:
+    default_category: 民生
+  国家医保局:
+    default_category: 民生
+  医保局:
+    default_category: 民生
+  民政部:
+    default_category: 民生
+  教育部:
+    default_category: 民生
+  国家卫生健康委:
+    default_category: 民生
+  卫生健康委:
+    default_category: 民生
+  国家疾控局:
+    default_category: 民生
+  住房城乡建设部:
+    default_category: 民生
+  住房和城乡建设部:
+    default_category: 民生
+
+  # ---- 科技产业 ----
+  科技部:
+    default_category: 科技产业
+  工业和信息化部:
+    default_category: 科技产业
+  工信部:
+    default_category: 科技产业
+  国家数据局:
+    default_category: 科技产业
+  国家能源局:
+    default_category: 科技产业
+  农业农村部:
+    default_category: 科技产业
+  国家知识产权局:
+    default_category: 科技产业
+
+  # ---- 安全国防 ----
+  国防部:
+    default_category: 安全国防
+  应急管理部:
+    default_category: 安全国防
+  国家安全部:
+    default_category: 安全国防
+  中央军委:
+    default_category: 安全国防
+  退役军人事务部:
+    default_category: 安全国防
+
+  # ---- 政务法治 ----
+  司法部:
+    default_category: 政务法治
+  最高人民法院:
+    default_category: 政务法治
+  最高人民检察院:
+    default_category: 政务法治
+
+  # ---- 其他 ----
+  生态环境部:
+    default_category: 其他
+  自然资源部:
+    default_category: 其他
+  交通运输部:
+    default_category: 其他
+  水利部:
+    default_category: 其他
