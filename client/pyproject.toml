@@ -1,51 +1,13 @@
 [project]
-name = "policy-daily-client"
+name = "policy-radar"
 version = "1.0.0"
-description = "民生政策日报客户端（Flet：Android APK / Windows exe）"
-requires-python = ">=3.10"
-dependencies = ["flet==0.28.3"]
+description = "基于 AI 的每日民生政策监控与摘要系统"
+authors = [{ name = "zifeiyui" }]
 
 [tool.flet]
-org = "policy.daily"
-product = "PolicyDaily"
-company = "PolicyDaily"
-copyright = "PolicyDaily"
+org = "com.zifeiyui"
+product = "PolicyRadar"
+company = "Zifeiyui"
 
-[tool.flet.app]
-path = "main.py"
-
-# H3：Android 显式只保留 INTERNET；其余权限明确置空（不生成对应 manifest 条目）
-[tool.flet.android.permission]
-"android.permission.INTERNET" = true
-"android.permission.ACCESS_NETWORK_STATE" = false
-"android.permission.ACCESS_WIFI_STATE" = false
-"android.permission.CAMERA" = false
-"android.permission.RECORD_AUDIO" = false
-"android.permission.READ_EXTERNAL_STORAGE" = false
-"android.permission.WRITE_EXTERNAL_STORAGE" = false
-"android.permission.MANAGE_EXTERNAL_STORAGE" = false
-"android.permission.READ_MEDIA_IMAGES" = false
-"android.permission.READ_MEDIA_VIDEO" = false
-"android.permission.READ_MEDIA_AUDIO" = false
-"android.permission.ACCESS_FINE_LOCATION" = false
-"android.permission.ACCESS_COARSE_LOCATION" = false
-"android.permission.ACCESS_BACKGROUND_LOCATION" = false
-"android.permission.READ_CONTACTS" = false
-"android.permission.WRITE_CONTACTS" = false
-"android.permission.SEND_SMS" = false
-"android.permission.READ_SMS" = false
-"android.permission.RECEIVE_SMS" = false
-"android.permission.CALL_PHONE" = false
-"android.permission.READ_PHONE_STATE" = false
-"android.permission.BLUETOOTH" = false
-"android.permission.BLUETOOTH_CONNECT" = false
-"android.permission.BLUETOOTH_SCAN" = false
-"android.permission.NFC" = false
-"android.permission.POST_NOTIFICATIONS" = false
-"android.permission.FOREGROUND_SERVICE" = false
-"android.permission.RECEIVE_BOOT_COMPLETED" = false
-"android.permission.WAKE_LOCK" = false
-"android.permission.SYSTEM_ALERT_WINDOW" = false
-"android.permission.QUERY_ALL_PACKAGES" = false
 [tool.flet.app]
 path = "src"
